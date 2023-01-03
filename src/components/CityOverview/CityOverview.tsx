@@ -29,8 +29,12 @@ const CityOverview = (props: CityOverviewPropsInterface) => {
   useEffect(() => {
     if (props.cityForecast) {
       setCityForecast(props.cityForecast);
+      console.log('props.cityForecast');
+      console.log(props.cityForecast);
+    } else if (props.cityId && cityForecastQuery?.data) {
+      setCityForecast(cityForecastQuery.data);
     }
-  }, [props]);
+  }, [props, cityForecastQuery?.data]);
 
   if (cityForecast != null) {
     return (
@@ -38,9 +42,9 @@ const CityOverview = (props: CityOverviewPropsInterface) => {
         className={`brw-city-ov ${props.className || ''}`.trim()} // Add any provided classnames to brw-CityOverview
         style={{
           backgroundImage:
-            cityForecastQuery?.data?.city.images != null &&
-            cityForecastQuery.data.city.images.length > 0
-              ? `url(${cityForecastQuery.data.city.images[0]})`
+            cityForecast.city.images != null &&
+            cityForecast.city.images.length > 0
+              ? `url(${cityForecast.city.images[0]})`
               : `url(${defaultCityBgImg})`,
           ...(props.style || undefined),
         }}

@@ -4,6 +4,8 @@
   align-items: center;
   flex-direction: column;
   height: calc(100vh - 148px);
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;

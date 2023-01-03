@@ -1,11 +1,11 @@
 .brw-city-ov {
+  --brw-city-ov-height: calc(100vh - 148px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 148px);
-  min-height: fill-available;
-  min-height: -webkit-fill-available;
+  height: var(--brw-city-ov-height);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;

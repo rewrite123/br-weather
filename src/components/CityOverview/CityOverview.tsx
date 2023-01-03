@@ -1,4 +1,4 @@
-import React, { HTMLProps, useEffect, useState } from 'react';
+import React, { HTMLProps, useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import getCityDetails from '../../api/getCityDetails.api';
 import StylingPropsInterface from '../../interfaces/StylingPropsInterface';
@@ -18,6 +18,8 @@ const CityOverview = (props: CityOverviewPropsInterface) => {
   const [cityForecast, setCityForecast] =
     useState<getCityForecastInterface | null>(null);
 
+  const cityOverviewRef = useRef<HTMLDivElement>(null);
+
   const cityForecastQuery =
     props.cityForecast == undefined && props.cityId != undefined
       ? useQuery(
@@ -29,16 +31,27 @@ const CityOverview = (props: CityOverviewPropsInterface) => {
   useEffect(() => {
     if (props.cityForecast) {
       setCityForecast(props.cityForecast);
-      console.log('props.cityForecast');
-      console.log(props.cityForecast);
     } else if (props.cityId && cityForecastQuery?.data) {
       setCityForecast(cityForecastQuery.data);
     }
   }, [props, cityForecastQuery?.data]);
 
+  useEffect(() => {
+    if (cityOverviewRef.current) {
+      console.log(
+        cityOverviewRef.current.style.getPropertyValue('--brw-city-ov-height'),
+      );
+      cityOverviewRef.current.style.setProperty(
+        '--brw-city-ov-height',
+        `${window.innerHeight - 148}px`,
+      );
+    }
+  }, [cityOverviewRef.current]);
+
   if (cityForecast != null) {
     return (
       <div
+        ref={cityOverviewRef}
         className={`brw-city-ov ${props.className || ''}`.trim()} // Add any provided classnames to brw-CityOverview
         style={{
           backgroundImage:

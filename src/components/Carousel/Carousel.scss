@@ -17,6 +17,7 @@
   color: var(--br-primary-color);
   font-size: 80px;
   cursor: pointer;
+  user-select: none;
 }
 
 .brw-carousel-selector-arrow-center {
@@ -51,6 +52,7 @@
 .brw-carousel-selector-center-bullets-el {
   font-size: 32px;
   cursor: pointer;
+  user-select: none;
 
   &.brw-active {
     color: var(--br-primary-color);

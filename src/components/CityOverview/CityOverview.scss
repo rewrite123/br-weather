@@ -1,4 +1,6 @@
 .brw-city-ov {
+  --brw-city-ov-height: calc(100vh - 148px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;

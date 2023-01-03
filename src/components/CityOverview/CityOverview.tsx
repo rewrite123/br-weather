@@ -37,15 +37,24 @@ const CityOverview = (props: CityOverviewPropsInterface) => {
   }, [props, cityForecastQuery?.data]);
 
   useEffect(() => {
-    if (cityOverviewRef.current) {
-      console.log(
-        cityOverviewRef.current.style.getPropertyValue('--brw-city-ov-height'),
-      );
-      cityOverviewRef.current.style.setProperty(
-        '--brw-city-ov-height',
-        `${window.innerHeight - 148}px`,
-      );
-    }
+    const onResize = () => {
+      if (cityOverviewRef.current) {
+        console.log(
+          cityOverviewRef.current.style.getPropertyValue(
+            '--brw-city-ov-height',
+          ),
+        );
+        cityOverviewRef.current.style.setProperty(
+          '--brw-city-ov-height',
+          `${window.innerHeight - 148}px`,
+        );
+      }
+    };
+    window.addEventListener('resize', onResize);
+    onResize();
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
   }, [cityOverviewRef.current]);
 
   if (cityForecast != null) {

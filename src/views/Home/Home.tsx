@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
-import { useQuery } from 'react-query';
+import { useQueries } from 'react-query';
 import getCities from '../../api/getCities.api';
+
+import useSavedCities from '../../hooks/useSavedCities.hook';
 
 import BRWTitle from '../../components/BRWTitle/BRWTitle';
 import Carousel from '../../components/Carousel/Carousel';
 import CityOverview from '../../components/CityOverview/CityOverview';
 import Switch from '../../components/Switch/Switch';
+import getCityForecast from '../../api/getCityForecast.api';
 
 const Home = () => {
   // page >= 1
@@ -15,12 +18,21 @@ const Home = () => {
   // farenheight | celcius measurements
   const [degType, setDegType] = useState<'f' | 'c'>('f');
 
-  const citiesQuery = useQuery('cities', getCities({ page }));
+  const [savedCities] = useSavedCities();
+
+  const forecastQueries = useQueries(
+    savedCities.map((cityId) => {
+      return {
+        queryKey: ['cityForecast', cityId],
+        queryFn: getCityForecast({ id: cityId }),
+      };
+    }),
+  );
 
   useEffect(() => {
-    console.log('citiesQuery.data');
-    console.log(citiesQuery.data);
-  }, [citiesQuery.data]);
+    // console.log('forecastQueries');
+    // console.log(forecastQueries.map((city) => city.data));
+  }, [forecastQueries]);
 
   return (
     <div className="brw-home">
@@ -54,18 +66,20 @@ const Home = () => {
       <div className="brw-home-loc">
         <Carousel
           pageTitles={
-            citiesQuery.data?.items.map((city) => {
-              return `${city.name} ${
-                city.regionCode ? `, ${city.regionCode}` : ''
+            forecastQueries.map((cityForecast) => {
+              return `${cityForecast.data?.city.name} ${
+                cityForecast.data?.city.regionCode
+                  ? `, ${cityForecast.data?.city.regionCode}`
+                  : ''
               }`;
             }) || []
           }
           pages={[
-            ...(citiesQuery.data?.items.map((city, cityIndex) => {
+            ...(forecastQueries.map((cityForecast, cityIndex) => {
               return (
                 <CityOverview
                   key={cityIndex}
-                  city={city}
+                  cityForecast={cityForecast.data}
                   className="brw-home-loc-slide"
                 />
               );
@@ -74,8 +88,6 @@ const Home = () => {
           className="brw-home-loc-slides"
         />
       </div>
-      {citiesQuery.data?.items.length}
-      {citiesQuery.status}
     </div>
   );
 };

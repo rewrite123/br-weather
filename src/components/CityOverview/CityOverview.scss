@@ -1,0 +1,57 @@
+.brw-city-ov {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 148px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+.brw-city-ov-top {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 24px 14px;
+  font-size: 24px;
+}
+
+.brw-city-ov-top-radar {
+}
+
+.brw-city-ov-top-trash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // I know it's not the most compliant, but that's what polyfills are for
+  aspect-ratio: 1 / 1; // Keep things square so that when we round the corners it's a circle
+  height: 46px;
+  stroke: var(--br-primary-color);
+  stroke-width: 2.5;
+
+  &:active {
+    stroke: var(--br-txt-secondary);
+  }
+}
+
+.brw-city-ov-bot {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  // height: calc(20vh - 136px / 2);
+  padding: 12px 14px;
+  background-color: #0003; // Nicer for certain images
+  // I knew about filter, but not backdrop-filter. This is much nicer :)
+  backdrop-filter: blur(10px);
+}
+
+.brw-city-ov-bot-deg {
+  font-size: 120px !important;
+  line-height: 1;
+  color: var(--br-txt-secondary);
+}

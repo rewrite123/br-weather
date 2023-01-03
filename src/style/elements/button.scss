@@ -1,0 +1,75 @@
+.br-btn {
+  position: relative;
+  padding: 5px 15px;
+  color: var(--br-txt-primary);
+  background: var(--br-bg-primary);
+  border-radius: var(--br-border-radius);
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  // Lets make it so that hovering does something
+  &::after {
+    content: '';
+    background: #0005; // Slightly darken on hover
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    border-radius: var(--br-border-radius);
+    transition: opacity 0.1s;
+  }
+  &:hover::after {
+    opacity: 0.08; // Very subtle, still noticable
+    transition: opacity 0.3s;
+  }
+  &:active::after {
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  &.br-primary-color {
+    color: var(--br-primary-color);
+    &:active {
+      color: var(--br-txt-secondary);
+      background: var(--br-primary-color);
+    }
+  }
+  &.br-secondary-color {
+    color: var(--br-secondary-color);
+    &:active {
+      color: var(--br-txt-secondary);
+      background: var(--br-secondary-color);
+    }
+  }
+
+  &.br-txt-primary {
+    color: var(--br-txt-primary);
+  }
+  &.br-txt-secondary {
+    color: var(--br-txt-secondary);
+    background-color: var(--br-bg-secondary);
+    &:active {
+      color: var(--br-bg-secondary);
+      background: var(--br-txt-secondary);
+    }
+  }
+
+  &.br-circle {
+    padding: 5px 5px;
+    border-radius: 50%;
+    &::after {
+      border-radius: 50%;
+    }
+  }
+  &.br-pill {
+    border-radius: 50px;
+    &::after {
+      border-radius: 50px;
+    }
+  }
+}

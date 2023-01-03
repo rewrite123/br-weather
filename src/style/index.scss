@@ -1,0 +1,92 @@
+// CSS reset
+@import url('https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css');
+// Open Sans font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif; // Open Sans
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  color: var(--brw-txt-primary);
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root,
+#root,
+#docs-root {
+  // css variable declarations can go here
+}
+
+// Once again, I try and prefix classnames with brw since we are not hashing them to avoid collisions later on :)
+
+// So we don't lose out on all the awesome sass vars
+@import './variables.scss';
+
+// css comps; usually i would use matui or something else, but I figure you want to make sure I know scss
+// These get the br prefix since they are designed to be project agnostic - ie you can use them on other projects
+// Comps are designed to be like components like you might see in react, but only exist in css
+@import './comps/card.scss';
+@import './comps/circle.scss';
+@import './comps/ctn.scss';
+
+// Elements are designed to replace and overwrite html elements
+@import './elements/button.scss';
+
+// React application views and component
+// @import '../components/App/App.scss'; // I don't want to use this, it makes it messy, & isn't needed
+
+// Views
+@import '../views/Home/Home.scss';
+@import '../views/Radar/Radar.scss';
+
+// Components
+@import '../components/BRWTitle/BRWTitle.scss';
+@import '../components/Carousel/Carousel.scss';
+@import '../components/CityOverview/CityOverview.scss';
+@import '../components/Layout/Layout.scss';
+@import '../components/Switch/Switch.scss';

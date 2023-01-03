@@ -1,0 +1,27 @@
+.brw-switch {
+  display: inline-block;
+  background: var(--br-secondary-color);
+  border-radius: var(--br-border-radius);
+  cursor: pointer;
+}
+
+.brw-switch-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brw-switch-el {
+  display: inline-block;
+  color: var(--br-txt-primary);
+  border-radius: var(--br-border-radius);
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &.brw-active {
+    color: var(--br-txt-secondary);
+    background: var(--br-primary-color);
+  }
+}

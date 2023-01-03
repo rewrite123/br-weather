@@ -1,0 +1,20 @@
+.br-ctn {
+  padding: 16px;
+  background: var(--brw-bg-primary);
+
+  @media screen and (min-width: $screen-sm-min) {
+    & {
+      margin: 0px 0px; // We could also use clamp here instead, but you wanna see media queries right?
+    }
+  }
+  @media screen and (min-width: $screen-md-min) {
+    & {
+      margin: 0px 28px;
+    }
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    & {
+      margin: 0px 28px;
+    }
+  }
+}

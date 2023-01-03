@@ -1,0 +1,26 @@
+// You gotta use sass vars for these because media queries wont let u use css vars
+// Small mobile devices
+$screen-sm-min: 23.4375rem; // 375px
+// Small tablets
+$screen-md-min: 48.375rem; // 744px
+// Large tablets
+$screen-lg-min: 75rem; // 1200px
+
+/*
+  CSS vars are much better today than ^, with the one xception of media queries which is still being debated.
+  You can also change these with JS and they are encapsulated - you can edit them for only certain pats of the application
+  I try and prefix everything with br so that if I wanted to add a style lib, there wont be collisions
+    ie. Both me and the lib are trying to set the css var --primary-color, and therefore broken
+*/
+:root {
+  --br-primary-color: #f4001e;
+  --br-secondary-color: #f1f1f1;
+
+  --br-bg-primary: #f8f8f8;
+  --br-bg-secondary: #fff;
+
+  --br-txt-primary: #404040;
+  --br-txt-secondary: #fff;
+
+  --br-border-radius: 7px;
+}

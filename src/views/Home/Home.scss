@@ -1,0 +1,56 @@
+.brw-home {
+}
+
+.brw-home-ctn {
+  padding: 0px;
+}
+
+.brw-home-ctn-card {
+  padding-bottom: 0px;
+}
+
+.brw-home-ctn-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0px;
+}
+
+.brw-home-ctn-card-header-title {
+}
+
+.brw-home-ctn-card-header-deg-switch-el {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.brw-home-loc {
+  text-align: center;
+}
+
+.brw-home-loc-slides {
+}
+
+.brw-home-loc-slide {
+  width: 100%;
+  background-color: #000;
+  height: 450px;
+  color: white;
+
+  animation-name: anim-fadein-brw-home-loc-slide;
+  animation-duration: 1s;
+}
+
+@keyframes anim-fadein-brw-home-loc-slide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,11 @@
+// Main parent class. Feel free to adjust this as you see fit.
+.app-container {
+  position: relative;
+  max-width: 150rem;
+  justify-content: center;
+  margin: 0 auto;
+
+  @media screen and (min-width: $screen-md-min) {
+    width: $screen-md-min;
+  }
+}

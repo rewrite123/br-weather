@@ -3,6 +3,8 @@
   background: var(--br-secondary-color);
   border-radius: var(--br-border-radius);
   cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .brw-switch-center {

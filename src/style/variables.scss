@@ -13,6 +13,8 @@ $screen-lg-min: 75rem; // 1200px
     ie. Both me and the lib are trying to set the css var --primary-color, and therefore broken
 */
 :root {
+  --br-height-100: 100vh; // Special variable for setting mobile compliant height values; Gets set in JS
+
   --br-primary-color: #f4001e;
   --br-secondary-color: #f1f1f1;
 

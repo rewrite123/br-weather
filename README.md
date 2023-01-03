@@ -2,7 +2,7 @@
 
 ## Side-note for Bottle Rocket
 
-This project is not completed. I would like to finish it and send you the completed project, however I recently had a complication requiring me to be out of my home and my office for multiple days. For this reason, I am submitting this application with the intent to finish it later so that at least you can see some of my methodologies for solving the problems I faced in this project. I can still answer emails during the day via my phone, but my laptop will be out of reach for possibly the next week. Thanks for your understanding and I hope to hear from you soon.
+This project is not completed. I would like to finish it and send you the completed project, however I recently had a complication requiring me to be out of my home and my office for multiple days. For this reason, I am submitting this application with the intent to finish it later so that at least you can see some of my methodologies for solving the problems I faced in this project. Just keep in mind, this project at this time represents no more than 6-8 hours of work. I can still answer emails during the day via my phone, but my laptop will be out of reach for possibly the next week. Thanks for your understanding and I hope to hear from you soon.
 
 ## Getting started
 
@@ -36,7 +36,7 @@ npm run build
 
 ## About
 
-This project is part of the br-weather coing assesment from BottleRocket. I have modified this project to better showcase my skills as a developer.
+This project is part of the br-weather coing assessment from BottleRocket. I have modified this project to better showcase my skills as a developer.
 
 1. his project was developed using TypeScript, and all other parts of this application that were using regular JSX have been converted to TSX.
 
